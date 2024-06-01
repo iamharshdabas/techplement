@@ -27,7 +27,7 @@ const quoteSchema = new mongoose.Schema({
 
 const Quote = mongoose.model("Quote", quoteSchema);
 
-app.get("/api/random", async (req, res) => {
+app.get("/api/quote/random", async (req, res) => {
   try {
     const count = await Quote.countDocuments();
     const randomIndex = Math.floor(Math.random() * count);
@@ -38,7 +38,7 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
-app.get("/api/:author", async (req, res) => {
+app.get("/api/quotes/:author", async (req, res) => {
   try {
     const quotes = await Quote.find({ author: req.params.author });
     res.json(quotes);
