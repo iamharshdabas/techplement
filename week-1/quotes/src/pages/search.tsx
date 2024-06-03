@@ -43,11 +43,13 @@ export default function SearchPage() {
 
   return (
     <DefaultLayout>
-      <section className="flex h-full flex-col items-center justify-start gap-16 py-14 md:py-28">
-        <div className="flex w-full max-w-6xl justify-between items-center">
-          <Meteors number={48} />
+      <section className="flex relative overflow-hidden h-full flex-col items-center justify-start gap-16 py-14 md:py-28">
+        <Meteors number={64} />
+        <div className="flex flex-col sm:flex-row w-full max-w-6xl justify-between items-center">
           <div>
-            <h1 className={title({ size: "sm" })}>Showing results </h1>
+            <div className="hidden sm:inline">
+              <h1 className={title({ size: "sm" })}>Showing results </h1>
+            </div>
             <NumberTicker
               className={title({ size: "sm", color: "cyan" })}
               delay={0.2}
