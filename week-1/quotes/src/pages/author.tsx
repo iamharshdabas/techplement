@@ -7,6 +7,7 @@ import Quote from "@/types/quote";
 import { title } from "@/components/primitives";
 import { FadeText } from "@/components/ui/fade-text";
 import getQuotesByAuthor from "@/api/autherQuotes";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default function AuthorPage() {
   const { author } = useParams<{ author?: string }>(); // NOTE: typr for author to prevent it being undefined
@@ -30,6 +31,7 @@ export default function AuthorPage() {
   return (
     <DefaultLayout>
       <section className="flex h-full flex-col items-center justify-between gap-16 py-14 md:py-28">
+        <BackgroundBeams />
         <div className="inline-block max-w-6xl text-center justify-center">
           {loading ? (
             <Spinner size="lg" />
