@@ -2,7 +2,7 @@ export function LogoIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="w-6 h-6 text-gray-800 dark:text-white"
+      className="h-6 w-6 text-gray-800 dark:text-white"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -15,5 +15,5 @@ export function LogoIcon() {
         fillRule="evenodd"
       />
     </svg>
-  );
+  )
 }

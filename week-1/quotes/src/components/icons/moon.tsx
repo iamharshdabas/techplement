@@ -14,5 +14,5 @@ export function MoonIcon() {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }

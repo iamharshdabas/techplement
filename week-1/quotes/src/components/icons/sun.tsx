@@ -14,5 +14,5 @@ export function SunIcon() {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }

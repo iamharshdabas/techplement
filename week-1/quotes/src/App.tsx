@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom'
 
-import HomePage from "@/pages/home";
-import AuthorPage from "@/pages/author";
-import SearchPage from "@/pages/search";
+import HomePage from '@/pages/home'
+import AuthorPage from '@/pages/author'
+import SearchPage from '@/pages/search'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Route element={<SearchPage />} path="/search" />
       <Route element={<AuthorPage />} path="/:author" />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

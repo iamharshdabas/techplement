@@ -1,3 +1,3 @@
-type Author = string;
+type Author = string
 
-export default Author;
+export default Author

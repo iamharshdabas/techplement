@@ -1,10 +1,10 @@
-import Author from "./author";
+import Author from './author'
 
 type Quote = {
-  _id: string;
-  quote: string;
-  author: Author;
-  __v: number;
-};
+  _id: string
+  quote: string
+  author: Author
+  __v: number
+}
 
-export default Quote;
+export default Quote
