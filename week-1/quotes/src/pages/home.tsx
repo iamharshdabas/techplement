@@ -7,7 +7,7 @@ import DefaultLayout from '@/layout'
 import Quote from '@/types/quote'
 import { title } from '@/components/primitives'
 import DotPattern from '@/components/ui/dot-pattern'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils'
 import { FadeText } from '@/components/ui/fade-text'
 import { MagicContainer, MagicCard } from '@/components/ui/magic-card'
 

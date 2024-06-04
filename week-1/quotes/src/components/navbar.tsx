@@ -15,7 +15,22 @@ import { NavLink } from 'react-router-dom'
 
 import { GithubIcon, LogoIcon } from '@/components/icons'
 import { ThemeSwitch } from '@/components/theme-switch'
-import { siteConfig } from '@/config/site'
+
+const siteConfig = {
+  navBarItems: [
+    { label: 'Home', href: '/' },
+    { label: 'Authors', href: '/search' },
+  ],
+  navMenuItems: [
+    { label: 'Profile', href: '/profile' },
+    { label: 'Home', href: '/' },
+    { label: 'Authors', href: '/search' },
+    { label: 'Logout', href: '/logout' },
+  ],
+  links: {
+    github: 'https://github.com/iamharshdabas/techplement/tree/main/week-1',
+  },
+}
 
 export const Navbar = () => {
   return (
