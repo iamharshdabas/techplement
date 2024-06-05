@@ -5,7 +5,6 @@ import {
   NavbarContent,
   NavbarItem,
   NavbarMenu,
-  NavbarMenuItem,
   NavbarMenuToggle,
   Navbar as NextUINavbar,
 } from '@nextui-org/navbar'
@@ -17,15 +16,9 @@ import { GithubIcon, LogoIcon } from '@/components/icons'
 import { ThemeSwitch } from '@/components/theme-switch'
 
 const siteConfig = {
-  navBarItems: [
+  items: [
     { label: 'Home', href: '/' },
     { label: 'Authors', href: '/search' },
-  ],
-  navMenuItems: [
-    { label: 'Profile', href: '/profile' },
-    { label: 'Home', href: '/' },
-    { label: 'Authors', href: '/search' },
-    { label: 'Logout', href: '/logout' },
   ],
   links: {
     github: 'https://github.com/iamharshdabas/techplement/tree/main/week-1',
@@ -33,6 +26,25 @@ const siteConfig = {
 }
 
 export const Navbar = () => {
+  function NavbarItems() {
+    return siteConfig.items.map((item) => (
+      <NavbarItem key={`${item.label}-${item.href}`}>
+        <NavLink
+          className={({ isActive }) =>
+            clsx(
+              link({ color: 'foreground' }),
+              isActive ? 'font-medium text-primary' : ''
+            )
+          }
+          color="foreground"
+          to={item.href}
+        >
+          {item.label}
+        </NavLink>
+      </NavbarItem>
+    ))
+  }
+
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -47,24 +59,15 @@ export const Navbar = () => {
           </Link>
         </NavbarBrand>
         <div className="ml-2 hidden justify-start gap-4 sm:flex">
-          {siteConfig.navBarItems.map((item) => (
-            <NavbarItem key={`${item.label}-${item.href}`}>
-              <NavLink
-                className={({ isActive }) =>
-                  clsx(
-                    link({ color: 'foreground' }),
-                    isActive ? 'font-medium text-primary' : ''
-                  )
-                }
-                color="foreground"
-                to={item.href}
-              >
-                {item.label}
-              </NavLink>
-            </NavbarItem>
-          ))}
+          <NavbarItems />
         </div>
       </NavbarContent>
+
+      <NavbarMenu>
+        <div className="mx-4 mt-2 flex flex-col gap-2">
+          <NavbarItems />
+        </div>
+      </NavbarMenu>
 
       <NavbarContent className="flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="flex items-center">
@@ -84,29 +87,6 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarMenuToggle className="h-8 w-8 sm:hidden" />
       </NavbarContent>
-
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item.label}-${item.href}`}>
-              <NavLink
-                className={({ isActive }) =>
-                  clsx(
-                    index === siteConfig.navMenuItems.length - 1
-                      ? link({ color: 'danger' })
-                      : link({ color: 'foreground' }),
-                    isActive ? 'font-medium text-primary' : ''
-                  )
-                }
-                color="foreground"
-                to={item.href}
-              >
-                {item.label}
-              </NavLink>
-            </NavbarMenuItem>
-          ))}
-        </div>
-      </NavbarMenu>
     </NextUINavbar>
   )
 }
